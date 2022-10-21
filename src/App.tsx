@@ -1,11 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { LoginPage } from './pages/login';
+import { Header } from './components/Header';
+import { HomePage } from './pages/home';
+import { TestsPage } from './pages/tests';
+import { UsersPage } from './pages/users';
 
 function App() {
   return (
-    <LoginPage />
+    <>
+      <Header />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='tests' element={<TestsPage />} />
+        <Route path='users' element={<UsersPage />} />
+      </Routes>
+    </>
   );
 }
 
