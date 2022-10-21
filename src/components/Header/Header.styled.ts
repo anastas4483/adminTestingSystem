@@ -8,7 +8,7 @@ export const LogoutBtn = styled.button`
   cursor: pointer;
 `;
 export const HeaderWrapper = styled.div`
-  background: #ccc;
+  background: #c4893f;
   height: 50px;
   width: 100%;
   position: relative;
@@ -27,4 +27,5 @@ export const Menu = styled.ul`
 
 export const MenuItem = styled.li`
   list-style: none;
+  color: #fff;
 `;
