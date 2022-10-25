@@ -9,7 +9,7 @@ export const users: User[] = [
         id: 0,
         start: "2020-05-12T23:50:21.817Z",
         timeSec: 2345678,
-        rightAnswers: 3,
+        rightAnswers: 5,
         allAnswers: 5,
       },
       {
@@ -23,7 +23,7 @@ export const users: User[] = [
         id: 2,
         start: "2022-07-02T12:25:21.817Z",
         timeSec: 7857,
-        rightAnswers: 6,
+        rightAnswers: 13,
         allAnswers: 13,
       },
       {

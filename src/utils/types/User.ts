@@ -1,4 +1,4 @@
-interface Attempt {
+export interface AttemptI {
   id: number;
   start: string;
   timeSec: number;
@@ -9,5 +9,5 @@ interface Attempt {
 export interface User {
   name: string;
   id: number;
-  attempts: Attempt[];
+  attempts: AttemptI[];
 }

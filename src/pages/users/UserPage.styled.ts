@@ -16,7 +16,11 @@ export const ListBlock = styled.div`
   gap: 30px;
 `;
 export const InfoBlock = styled.div`
-  color: #ccc;
+  color: #fff;
+  width: 30%;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  padding: 10px 30px;
 `;
 export const UserItem = styled.div`
   display: flex;
@@ -37,17 +41,7 @@ export const UserItem = styled.div`
   }
 
   :hover {
-    transition: all ease 0.3s;
-    background: rgb(0, 255, 209);
-    background: linear-gradient(
-      36deg,
-      rgba(0, 255, 209, 1) 0%,
-      rgba(0, 51, 112, 1) 22%,
-      rgba(76, 117, 205, 1) 42%,
-      rgba(74, 168, 217, 1) 63%,
-      rgba(83, 218, 212, 1) 81%,
-      rgba(255, 255, 255, 1) 98%
-    );
+    background: #ffd098;
   }
 `;
 export const SearchUser = styled.input`

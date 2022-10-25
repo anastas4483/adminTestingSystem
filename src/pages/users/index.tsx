@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react'
 import { users } from '../../assets/data/users';
+import { UserInfo } from '../../components/UserInfo';
+import { Placeholder } from '../../components/UserInfo/UserInfo.styled';
 import { User } from '../../utils/types/User';
 import { InfoBlock, ListBlock, MainTitle, UserItem, Blocks, SearchUser, SearchUserWrapper, UsersTable } from './UserPage.styled';
 
@@ -32,7 +34,10 @@ export const UsersPage: FC = () => {
                     </UsersTable>
                 </ListBlock>
                 <InfoBlock>
-                    {user?.name}
+                    {user
+                        ? <UserInfo user={user} />
+                        : <Placeholder>Select the user to see his info</Placeholder>
+                    }
                 </InfoBlock>
             </Blocks>
         </>
