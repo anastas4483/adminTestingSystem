@@ -4,6 +4,7 @@ export const tests: Test[] = [
   {
     id: 0,
     title: "Астрономия",
+    isHide: true,
     questions: [
       {
         questionId: 0,
@@ -392,7 +393,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 1,
+        questionId: 2,
         title:
           "Сказка «Курочка–Ряба» на самом деле имеет автора. Назовите его имя",
         answers: [
@@ -416,7 +417,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 2,
+        questionId: 3,
         title:
           "Он знаком многим. Был и художником, и доктором, и путешественником, и космонавтом. Кто это?",
         answers: [
@@ -440,7 +441,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 3,
+        questionId: 4,
         title:
           "В Древней Греции на этих зданиях было написано: «Здесь живут мертвые и говорят живые»",
         answers: [
@@ -464,7 +465,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 4,
+        questionId: 5,
         title:
           "Сколько лет было Анне Карениной на момент ее гибели в произведении Л.Н.Толстого? ",
         answers: [
@@ -488,7 +489,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 5,
+        questionId: 6,
         title: "Какая книга является самой маленькой в мире?",
         answers: [
           {
@@ -511,7 +512,7 @@ export const tests: Test[] = [
         ],
       },
       {
-        questionId: 6,
+        questionId: 7,
         title:
           "Какой перевод у слова «мцыри», одноименного произведения М.Ю. Лермонтова?",
         answers: [

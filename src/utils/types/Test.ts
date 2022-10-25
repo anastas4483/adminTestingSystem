@@ -1,9 +1,9 @@
-interface Answer {
+export interface Answer {
   title: string;
   isRight?: boolean;
   answerId: number;
 }
-interface Question {
+export interface Question {
   title: string;
   questionId: number;
   answers: Answer[];

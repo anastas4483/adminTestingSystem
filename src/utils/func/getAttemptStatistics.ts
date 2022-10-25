@@ -4,7 +4,7 @@ export const getAttemptStatistics = (attempts: AttemptI[]) => {
   const data = attempts.reduce(
     (data, attempt) => {
       if (attempt.allAnswers === attempt.rightAnswers) data.successfullyTests++;
-      data.rate += attempt.rightAnswers / attempt.allAnswers;
+      data.rate += (attempt.rightAnswers * 10) / attempt.allAnswers;
       return data;
     },
     {
