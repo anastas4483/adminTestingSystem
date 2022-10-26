@@ -1,6 +1,7 @@
+import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { MenuItem, Menu, LogoutBtn, HeaderWrapper } from './Header.styled'
+import { MenuItem, Menu, HeaderWrapper } from './Header.styled'
 
 export const Header: FC = () => {
     return (
@@ -11,10 +12,17 @@ export const Header: FC = () => {
                 <Link to={'users'} style={{ textDecoration: 'none' }}> <MenuItem>Users</MenuItem> </Link>
             </Menu>
             <Link to={'/login'} onClick={() => localStorage.removeItem('isAdminAuth')}>
-                <LogoutBtn>
+                <Button variant='contained' style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    position: "absolute",
+                    right: 30,
+                    bottom: 10,
+                    cursor: "pointer",
+                }} >
                     Log out
-                </LogoutBtn>
+                </Button>
             </Link>
-        </HeaderWrapper>
+        </HeaderWrapper >
     )
 }

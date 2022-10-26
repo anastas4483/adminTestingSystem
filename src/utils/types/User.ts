@@ -6,8 +6,14 @@ export interface AttemptI {
   allAnswers: number;
 }
 
+export interface PassedTest{
+  testId: number;
+  attempts: AttemptI[];
+}
+
 export interface User {
   name: string;
   id: number;
-  attempts: AttemptI[];
+  passedTests: PassedTest[]
+  
 }

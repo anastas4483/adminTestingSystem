@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Box,
   Collapse,
@@ -9,7 +9,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
   Paper,
 } from "@mui/material";
 import { Question, Test } from "../../utils/types/Test";
@@ -20,9 +19,9 @@ interface RowProp {
 }
 
 const Row: FC<RowProp> = ({ question }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   return (
-    <React.Fragment>
+    <>
       <TableRow sx={{ "& > *": { borderBottom: "none" } }}>
         <TableCell>
           <IconButton
@@ -33,22 +32,24 @@ const Row: FC<RowProp> = ({ question }) => {
             {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell component="th" align='center'>
           {question.questionId}
         </TableCell>
-        <TableCell>{question.title}</TableCell>
+        <TableCell align='center'>
+          {question.title}
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
+              <h3>
                 Answers
-              </Typography>
+              </h3>
               <TableMaterial size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>ID</TableCell>
+                    <TableCell>№</TableCell>
                     <TableCell>Text</TableCell>
                     <TableCell>Is right</TableCell>
                   </TableRow>
@@ -56,7 +57,7 @@ const Row: FC<RowProp> = ({ question }) => {
                 <TableBody>
                   {question.answers.map((answer) => (
                     <TableRow key={answer.answerId}>
-                      <TableCell>{answer.answerId}</TableCell>
+                      <TableCell>{answer.answerId + 1}</TableCell>
                       <TableCell>{answer.title}</TableCell>
                       <TableCell>{answer.isRight && <Done />}</TableCell>
                     </TableRow>
@@ -67,7 +68,7 @@ const Row: FC<RowProp> = ({ question }) => {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -80,10 +81,10 @@ export const Table: FC<TableProp> = ({ test }) => {
     <TableContainer component={Paper} sx={{ width: 700 }}>
       <TableMaterial aria-label="collapsible table">
         <TableHead>
-          <TableRow>
+          <TableRow sx={{ '>*': { fontWeight: 'bold' } }}>
             <TableCell />
-            <TableCell>ID</TableCell>
-            <TableCell>Question text</TableCell>
+            <TableCell align='center'>ID</TableCell>
+            <TableCell align='center'>Question text</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

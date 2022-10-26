@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Answer as AnswerI } from "../../utils/types/Test";
 import { Answer, CollapseAnswersBlock } from "./NewTest.styled";
 import { TextField, Button, Collapse, RadioGroup, Radio } from "@mui/material";
@@ -9,22 +9,34 @@ interface CollapseAnswersProp {
   onChangeAnswers: (answers: AnswerI[]) => void;
 }
 
-export const CollapseAnswers: FC<CollapseAnswersProp> = () => {
+export const CollapseAnswers: FC<CollapseAnswersProp> = ({onChangeAnswers}) => {
   const [open, setOpen] = useState<boolean>(false);
   const [answers, setAnswers] = useState<AnswerI[]>([]);
 
-  //   const onUpdateAnswers = (
-  //     id: number,
-  //     property: "title" | "isRight",
-  //     value: string
-  //   ) => {
-  //     setAnswers((prev) => {
-  //       const newAnswers = [...prev];
-  //       //   newAnswers[id][property] = value;
-  //       newAnswers[id].answerId = id;
-  //       return newAnswers;
-  //     });
-  //   };
+  useEffect(()=>{
+    onChangeAnswers(answers)
+  },[answers])
+
+  const onUpdateAnswerTitle = (id: number,  value: string) => {
+    setAnswers(prev => {
+      const newAnswers = [...prev]
+      if (!newAnswers[id]) newAnswers[id] = { title: '', answerId: id }
+      newAnswers[id].title = value
+      return newAnswers
+    })
+  }
+  const onUpdateAnswerIsRight = (id: number) => {
+    setAnswers(prev => {
+      const newAnswers = prev.map(answer=> {
+        const newAnswer= {...answer} 
+        delete newAnswer.isRight
+        return newAnswer
+      })
+      if (!newAnswers[id]) newAnswers[id] = { title: '', answerId: id }
+      newAnswers[id].isRight = true
+      return newAnswers
+    })
+  }
   return (
     <CollapseAnswersBlock>
       <Button onClick={() => setOpen((prev) => !prev)}>
@@ -36,14 +48,14 @@ export const CollapseAnswers: FC<CollapseAnswersProp> = () => {
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"
           name="radio-buttons-group"
-          //   onChange={(e, value) => onUpdateAnswers(0, "isRight", value)}
+          onChange={(e, value) => onUpdateAnswerIsRight(Number(value))}
         >
           <Answer>
             <Radio value={0} />
             <TextField
               label="Answer"
               variant="standard"
-              //   onChange={(e) => onUpdateAnswers(0, "title", e.target.value)}
+              onChange={(e) => onUpdateAnswerTitle(0,  e.target.value)}
               required
             />
           </Answer>
@@ -53,7 +65,7 @@ export const CollapseAnswers: FC<CollapseAnswersProp> = () => {
               label="Answer"
               variant="standard"
               required
-              //   onChange={(e) => onUpdateAnswers(1, "title", e.target.value)}
+              onChange={(e) => onUpdateAnswerTitle(1, e.target.value)}
             />
           </Answer>
           <Answer>
@@ -62,7 +74,7 @@ export const CollapseAnswers: FC<CollapseAnswersProp> = () => {
               label="Answer"
               variant="standard"
               required
-              //   onChange={(e) => onUpdateAnswers(2, "title", e.target.value)}
+              onChange={(e) => onUpdateAnswerTitle(2, e.target.value)}
             />
           </Answer>
           <Answer>
@@ -71,7 +83,7 @@ export const CollapseAnswers: FC<CollapseAnswersProp> = () => {
               label="Answer"
               variant="standard"
               required
-              //   onChange={(e) => onUpdateAnswers(3, "title", e.target.value)}
+              onChange={(e) => onUpdateAnswerTitle(3, e.target.value)}
             />
           </Answer>
         </RadioGroup>

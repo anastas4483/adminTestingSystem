@@ -65,15 +65,26 @@ export const Info = styled.div`
 `;
 export const TitleQuestion = styled.div`
   display: flex;
+  align-items: center;
   gap: 10px;
   width: 100%;
+`;
+
+interface QuestionCountProp {
+  isValid: boolean;
+}
+
+export const QuestionCount = styled.span<QuestionCountProp>`
+  color: ${({ isValid }) => (isValid ? "#0f0" : "#ff0")};
+  background-color: ${({ isValid }) => (isValid ? "#359d00" : "#bcaa00")};
+  padding: 5px;
+  border-radius: 5px;
 `;
 export const NewTestBlock = styled.div`
   width: 500px;
 `;
 export const AddQuestion = styled.div`
   display: flex;
-  gap: 10px;
 `;
 export const MainBlock = styled.div`
   display: flex;

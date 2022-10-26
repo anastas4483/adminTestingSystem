@@ -7,7 +7,9 @@ export const Blocks = styled.div`
   justify-content: space-around;
 `;
 export const MainTitle = styled.h1`
-  color: #7600b0;
+  color: #814e00;
+  margin: 0;
+  padding: 20px;
 `;
 export const ListBlock = styled.div`
   width: 50%;
@@ -18,7 +20,7 @@ export const ListBlock = styled.div`
 export const InfoBlock = styled.div`
   color: #fff;
   width: 30%;
-  background-color: #2a2a2a;
+  background-color: #d19200;
   border-radius: 5px;
   padding: 10px 30px;
 `;

@@ -1,35 +1,16 @@
 import React, { FC } from "react";
-import { getAttemptStatistics } from "../../utils/func/getAttemptStatistics";
 import { User } from "../../utils/types/User";
-import { Attempt } from "./Attempt";
-import { Name, AttemptList, Property, Value } from "./UserInfo.styled";
+import { PassedTest } from "./PassedTest";
+import { Name } from "./UserInfo.styled";
 
 interface UserInfoProp {
-  user: User;
+    user: User;
 }
 
-export const UserInfo: FC<UserInfoProp> = ({ user }) => {
-  const { totalAttempts, successfullyPercentage, successfullyTests, GPA } =
-    getAttemptStatistics(user.attempts);
-  return (
+export const UserInfo: FC<UserInfoProp> = ({ user }) => (
     <>
-      <Name>{user.name}</Name>
-      <Property>
-        successfully passed tests: <Value>{successfullyTests}</Value>
-      </Property>
-      <Property>
-        total number of attempts: <Value>{totalAttempts}</Value>
-      </Property>
-      <Property>GPA: {GPA.toFixed(1)}</Property>
-      <Property>
-        percentage of all attempts:
-        <Value>{`${successfullyPercentage}%`}</Value>
-      </Property>
-      <AttemptList>
-        {user.attempts.map((attempt) => (
-          <Attempt attempt={attempt} />
-        ))}
-      </AttemptList>
+        <Name>{user.name}</Name>
+        {user.passedTests.map(test => <PassedTest test={test} />)}
     </>
-  );
-};
+);
+

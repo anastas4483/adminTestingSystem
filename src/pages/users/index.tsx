@@ -20,14 +20,14 @@ export const UsersPage: FC = () => {
                         <UserItem>
                             <span>ID</span>
                             <span>Name</span>
-                            <span>Attempts</span>
+                            <span>Passed tests</span>
                         </UserItem>
                         {
                             users.filter(user => user.name.toLowerCase().includes(name.toLowerCase())).map((user) => (
                                 <UserItem onClick={() => setUser(user)}>
                                     <span>{user.id}</span>
                                     <span>{user.name}</span>
-                                    <span>{user.attempts.length}</span>
+                                    <span>{user.passedTests.length}</span>
                                 </UserItem>
                             ))
                         }

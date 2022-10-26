@@ -5,14 +5,14 @@ export const AttemptList = styled.div`
   display: flex;
   gap: 5px;
   flex-direction: column;
-  padding: 15px;
+  padding: 15px 0;
 `;
 
-interface AttempProp {
+interface InfoProp {
   isShow?: boolean;
 }
 
-export const AttemptPreview = styled.div<AttempProp>`
+export const TestPreview = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,29 +20,41 @@ export const AttemptPreview = styled.div<AttempProp>`
   border-radius: 5px;
   padding: 5px;
   cursor: pointer;
-
-  ::after {
-    content: url(${Arrow});
-    transform: ${({ isShow }) => (isShow ? "rotate(180deg)" : "rotate(0)")};
-  }
 `;
 
-export const AttemptInfo = styled.div<AttempProp>`
+export const TestInfo = styled.div<InfoProp>`
+  display: ${({ isShow }) => (isShow ? "block" : "none")};
+  padding: 5px;
+`;
+
+export const AttemptPreview = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cccccc63;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+`;
+
+export const AttemptInfo = styled.div<InfoProp>`
   display: ${({ isShow }) => (isShow ? "block" : "none")};
   padding: 5px;
 `;
 
 export const Property = styled.div`
-  color: #ff0;
+  color: #fff;
 `;
 export const Value = styled.span`
   font-weight: bold;
+  color: #edb169;
 `;
 export const Name = styled.div`
   text-align: center;
   font-size: 20px;
   border-bottom: 1px solid #fff;
   padding-bottom: 5px;
+  margin-bottom: 10px;
 `;
 export const Placeholder = styled.div`
   width: 100%;
@@ -50,4 +62,18 @@ export const Placeholder = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+export const PassedTestBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #000000a1;
+  border-radius: 5px;
+  padding: 13px;
+  margin: 5px 0;
+`;
+export const TitleAttempts = styled.div`
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 10px;
 `;

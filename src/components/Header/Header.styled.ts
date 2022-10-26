@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const LogoutBtn = styled.button`
-  border: none;
-  position: absolute;
-  right: 30px;
-  top: 17px;
-  cursor: pointer;
-`;
 export const HeaderWrapper = styled.div`
   background: #c4893f;
   height: 50px;

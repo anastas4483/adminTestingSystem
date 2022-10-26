@@ -1,9 +1,7 @@
-import { Autocomplete, TextField } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
 import { tests as testsDefault } from "../../assets/data/tests";
 import { Table } from "../../components/Table";
 import { Test } from "../../utils/types/Test";
-import Switch from "@mui/material/Switch";
 import {
   ActionBlock,
   ShowBlock,
@@ -11,8 +9,8 @@ import {
   TestInfo,
   TestTitle,
 } from "./TestPage.styled";
-import Button from "@mui/material/Button";
 import { NewTest } from "../../components/NewTest";
+import { Autocomplete, Button, Switch, TextField } from "@mui/material";
 
 export const TestsPage: FC = () => {
   const [selectedTest, setSelectedTest] = useState<Test | null>(null);
@@ -47,9 +45,9 @@ export const TestsPage: FC = () => {
           sx={{ width: 300 }}
           options={tests}
           value={selectedTest}
-          getOptionLabel={(option) => option.title}
-          onChange={(e, value) => setSelectedTest(value)}
-          renderInput={(params) => (
+          getOptionLabel={(option: Test) => option.title}
+          onChange={(e: React.SyntheticEvent, value: Test | null) => setSelectedTest(value)}
+          renderInput={(params: {}) => (
             <TextField
               {...params}
               label="Tests"
@@ -57,7 +55,6 @@ export const TestsPage: FC = () => {
             />
           )}
         />
-
         {!isCreatingNewTest && (
           <Button
             variant="outlined"
