@@ -4,7 +4,7 @@ The project consists of 4 pages - Login, Home, Tests and Users.
 
 ## Login
 
-If user visits the app first time or loged out before, he gets into login page. He must enter login and password and after succeess autotification he gets to home page. If he failed autotification it shows him warning. If user closes the window or website he can get to home page without autotification as well. Because his data save in LocalStorage, untill he doesn't want to log out.
+If user visits the app first time or loged out before, he gets into login page. He must enter login and password and after succeess authentication he gets to home page. If he failed authentication it shows him warning. If user closes the window or website he can get to home page without authentication as well. Because his data save in LocalStorage, untill he doesn't want to log out.
 
 ## Home
 
